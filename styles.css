@@ -130,7 +130,7 @@ h1, h2, h3, h4, h5, h6 {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(24, 24, 27, 0.95);
+    background: var(--zinc-900);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--glass-border);
@@ -150,7 +150,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .logo-image {
-    height: 80px;
+    height: 120px;
     width: auto;
     transition: transform 0.3s ease;
 }
