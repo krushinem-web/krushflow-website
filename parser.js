@@ -2,6 +2,9 @@
 // Handles document upload, parsing, and storage
 
 const MAX_DOCUMENTS = 30;
+
+// Detect API base URL (Railway or local)
+const API_BASE_URL = window.location.origin;
 let documents = [];
 let parsedResults = [];
 
@@ -184,7 +187,7 @@ async function saveToServer() {
         };
         
         // Send to actual API endpoint
-        const response = await fetch('/api/parse', {
+        const response = await fetch(`${API_BASE_URL}/api/parse`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ documents: documents })

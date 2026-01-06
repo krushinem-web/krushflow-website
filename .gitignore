@@ -27,3 +27,10 @@ build/
 # Logs
 *.log
 logs/
+
+# Parser data and Python
+parsed_documents/
+__pycache__/
+*.py[cod]
+*.pyc
+server.log

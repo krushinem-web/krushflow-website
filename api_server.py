@@ -208,10 +208,13 @@ def health():
     })
 
 if __name__ == '__main__':
+    # Get port from environment variable (Railway) or default to 5000
+    port = int(os.environ.get('PORT', 5000))
+    
     print("=" * 60)
     print("🔥 KrushFlow Document Parser API Server")
     print("=" * 60)
-    print("Server starting on http://localhost:5000")
+    print(f"Server starting on http://0.0.0.0:{port}")
     print()
     print("API Endpoints:")
     print("  POST /api/parse         - Parse uploaded documents")
@@ -223,4 +226,7 @@ if __name__ == '__main__':
     print("Web Interface:")
     print("  GET  /                  - Document parser interface")
     print("=" * 60)
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    
+    # Disable debug mode in production (Railway)
+    debug_mode = os.environ.get('FLASK_ENV') != 'production'
+    app.run(host='0.0.0.0', port=port, debug=debug_mode)
